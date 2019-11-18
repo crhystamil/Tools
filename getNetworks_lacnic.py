@@ -12,6 +12,7 @@ def get_ip(domain):
         ip = socket.gethostbyname(domain)
     except Exception as e:
         print("Error in domain: %s -> %s " %(domain,e))
+        exit(2)
 #        pass
     if isValid_ip(ip):
         return ip 
@@ -26,7 +27,8 @@ def rdap_ip(ip):
         else: 
             id_rdap = rdap['entities'][0]['handle']
     except Exception as e:
-        print("Error in request rdap_ip: ", e)
+#        print("Error in request rdap_ip: ", e)
+        print("Not found data")
         pass
     return id_rdap
 
